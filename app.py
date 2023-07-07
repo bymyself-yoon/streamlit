@@ -51,15 +51,15 @@ def makeMarker(n):
   top, df_top = getTop(n)
 
   if n == 10:
-    df_top = df_top.iloc[5:n]
-    top = top[5:n]
+    df_top = df_top.iloc[0:n]
+    top = top[0:n]
     radius = 700
     color = 'crimson'
   else:
     radius = 1000
     color = 'pink'
 
-  for i in range(5):
+  for i in range(n):
     folium.Circle(
         location=top[i],
         radius = radius,
