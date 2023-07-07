@@ -71,15 +71,26 @@ def makeMarker(n):
     ).add_to(m)
 
 st.sidebar.title("The Arts Vibrancy in Busan & Seoul")
-
+def test(v):
+    makeMarker(v)
+    
 with st.sidebar:
+
+    bt1 = st.button(
+        "Top 10 Large Communities",
+        on_click==test(10),
+        kwargs=None,
+        disabled=False,
+    )
+        
+    '''
     button = st.radio('크기 순으로 보기', ['Top 10 Large Communities', 'Top 5 Large Communities'])
     if button == 'Top 10 Large Communities':
-      makeMarker(10)
-      st.stop()
+    
     elif button == 'Top 5 Large Communities':
       makeMarker(5)
       st.stop()
+    '''
 st_data = st_folium(m, width=3000)
 
 
