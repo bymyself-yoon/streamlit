@@ -92,7 +92,7 @@ with st.sidebar:
     if st.checkbox('Top 10 Large Communities'):
         st.session_state.marker = "Top 10"
         mapMarker()
-    if st.checkbox('Top 5 Large Communities')
+    if st.checkbox('Top 5 Large Communities'):
         st.session_state.marker = "Top 5"
         mapMarker()
 
