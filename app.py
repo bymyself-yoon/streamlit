@@ -70,7 +70,7 @@ def makeMarker(n):
         fill_opacity=100,
     ).add_to(m)
 
-st_data = st_folium(m, width=725)
+st_data = st_folium(m, width=1000)
 
 st.sidebar.title("The Arts Vibrancy in Busan & Seoul")
 
