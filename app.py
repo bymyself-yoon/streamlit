@@ -73,10 +73,8 @@ def makeMarker(n):
 st_data = st_folium(m, width=1000)
 
 st.sidebar.title("The Arts Vibrancy in Busan & Seoul")
-
-if st.button("Top 10 Large Communities"):
-  makeMarker(10)
-elif st.button("Top 5 Large Communities"):
-  makeMarker(5)
-
-st.title("This is Title")
+with st.sidebar:
+    if st.button("Top 10 Large Communities"):
+      makeMarker(10)
+    elif st.button("Top 5 Large Communities"):
+      makeMarker(5)
