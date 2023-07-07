@@ -75,23 +75,21 @@ def test(v):
     makeMarker(v)
     
 with st.sidebar:
-
-    bt1 = st.button(
-        "Top 10 Large Communities",
-        on_click==test,
-        kwargs=None,
-        disabled=False,
-    )
-        
-    '''
     button = st.radio('크기 순으로 보기', ['Top 10 Large Communities', 'Top 5 Large Communities'])
     if button == 'Top 10 Large Communities':
-    
+        st.session_state.marker = "Top 10"
+        mapMarker()
     elif button == 'Top 5 Large Communities':
-      makeMarker(5)
-      st.stop()
-    '''
-st_data = st_folium(m, width=3000)
+        st.session_state.marker = "Top 5"
+        mapMarker()
+
+def mapMarker():
+    mk = st.session_state.marker
+    if mk == "Top 10":
+        makeMarker(10)
+    elif mk == "Top 5":
+        makeMarker(5)
+    st_data = st_folium(m, width=3000)
 
 
 
