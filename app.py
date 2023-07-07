@@ -76,10 +76,10 @@ with st.sidebar:
     button = st.radio('크기 순으로 보기', ['Top 10 Large Communities', 'Top 5 Large Communities'])
     if button == 'Top 10 Large Communities':
       makeMarker(10)
-      st.experimental_rerun()
+      break
     elif button == 'Top 5 Large Communities':
       makeMarker(5)
-      st.experimental_rerun()
+      break
 st_data = st_folium(m, width=3000)
 
 
