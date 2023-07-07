@@ -70,7 +70,6 @@ def makeMarker(n):
         fill_opacity=100,
     ).add_to(m)
 
-m = folium.Map(location = center, zoom_start = 10)
 st_data = st_folium(m, width=725)
 
 st.sidebar.title("The Arts Vibrancy in Busan & Seoul")
