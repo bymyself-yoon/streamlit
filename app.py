@@ -78,7 +78,7 @@ with st.sidebar:
 
     bt1 = st.button(
         "Top 10 Large Communities",
-        on_click==test(10),
+        on_click==test,
         kwargs=None,
         disabled=False,
     )
