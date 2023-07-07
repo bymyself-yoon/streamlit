@@ -80,15 +80,6 @@ def mapMarker():
         makeMarker(5)
     
 with st.sidebar:
-    '''
-    button = st.radio('크기 순으로 보기', ['Top 10 Large Communities', 'Top 5 Large Communities'])
-    if button == 'Top 10 Large Communities':
-        st.session_state.marker = "Top 10"
-        mapMarker()
-    elif button == 'Top 5 Large Communities':
-        st.session_state.marker = "Top 5"
-        mapMarker()
-'''
     if st.checkbox('Top 10 Large Communities'):
         st.session_state.marker = "Top 10"
         mapMarker()
