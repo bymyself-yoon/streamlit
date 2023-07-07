@@ -1,15 +1,15 @@
 import streamlit as st
-import pandas as pd
-import numpy as np
+import folium
+from streamlit_folium import st_folium
 
-st.title("map")
-df = pd.DataFrame(np.random.randn(500, 2) / [50, 50] + [37.76, - 122.4], columns = ['lat', 'lon'])
-st.map(df)
+m = folium.Map(location = center, zoom_start = 10)
+st_data = st_folium(m, width=725)
 
-# x = st.slider('Select a value')
-# st.write(x, 'squared is', x * x)
+st.sidebar.title("The Arts Vibrancy in Busan & Seoul")
 
-rand = np.random.normal(1, 2, size=20)
-fig, ax = plt.subplots()
-ax.hist(rand, bins = 15)
-st.pyplot(fig)
+if st.button("Top 10 Large Communities"):
+  makeMarker(10)
+elif st.button("Top 5 Large Communities"):
+  makeMarker(5)
+
+st.title("This is Title")
