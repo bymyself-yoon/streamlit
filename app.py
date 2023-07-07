@@ -90,7 +90,7 @@ with st.sidebar:
         st.session_state.marker = "Top 5"
         mapMarker()
 
-st_folium(m, width=3000, returned_objects=[])
+st_folium(m, width=1000, returned_objects=[])
 
 
 
