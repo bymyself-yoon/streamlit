@@ -79,7 +79,7 @@ def mapMarker():
     elif mk == "Top 5":
         makeMarker(5)
 
-st_folium(m, width=3000, retruned_objects=[])
+st_folium(m, width=3000, returned_objects=[])
     
 with st.sidebar:
     button = st.radio('크기 순으로 보기', ['Top 10 Large Communities', 'Top 5 Large Communities'])
