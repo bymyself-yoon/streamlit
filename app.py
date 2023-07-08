@@ -10,8 +10,8 @@ geo_data_merge = 'hangjeongdong_merge_last.geojson'
 center = [37.541, 126.986]
 
 m = folium.Map(location = center, zoom_start = 10)
-click_for_marker = folium.ClickForMarker(popup='클릭 위치')
-click_for_marker.add_to(m)
+click = folium.LatLngPopup()
+click.add_to(m)
 
 folium.Choropleth(
     geo_data = geo_data_merge,
@@ -91,11 +91,9 @@ with st.sidebar:
 
 st_folium(m, width=1000, returned_objects=[])
 
-'''
 def on_map_click(event):
     lat, lon = event['location']
     st.sidebar.write(f'클릭 위치의 위도: {lat}, 경도: {lon}')
-'''
     
 
    
