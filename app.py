@@ -88,10 +88,6 @@ with st.sidebar:
         mapMarker()
 
 st_folium(m, width=1000, returned_objects=[])
-
-def click_map():
-    folium.ClickForMarker(popup='클릭 위치', callback=on_map_click).add_to(m)
-    return m._repr_html_()
     
 def on_map_click(event):
     lat, lon = event.latlng
@@ -109,7 +105,7 @@ def get_location_info(lat, lon):
         return location_info
     return None
 
-
+folium.ClickForMarker(popup='클릭 위치', callback=on_map_click).add_to(m)
 
 
 
