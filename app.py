@@ -176,13 +176,13 @@ def main():
       df_enjoyment = pd.DataFrame(creation, columns = creation[27:])
       df_archivement = pd.DataFrame(creation, columns = creation[35:])
 
-    '''
+    
       filtered_df_title_creation = filtered_df.iloc[4:5]
       filtered_df_title_finance = filtered_df.iloc[12:13]
       filtered_df_title_facilities = filtered_df.iloc[18:19]
       filtered_df_title_enjoyment = filtered_df.iloc[27:28]
       filtered_df_title_achivement = filtered_df.iloc[35:36]
-    '''
+
       filtered_df_title_artsindex = filtered_df.iloc[35:]
 
       filtered_df_com_creation = filtered_df.iloc[1:5]
