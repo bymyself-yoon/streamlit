@@ -5,3 +5,5 @@ pandas
 folium
 streamlit_folium
 geopy
+jinja2
+Marker
