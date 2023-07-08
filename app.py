@@ -92,6 +92,22 @@ st_folium(m, width=1000, returned_objects=[])
 def click_map():
     folium.ClickForMarker(popup='클릭 위치', callback=on_map_click).add_to(m)
     return m._repr_html_()
+    
+def on_map_click(event):
+    lat, lon = event.latlng
+    location_info = get_location_info(lat, lon)
+    if location_info:
+        st.sidebar.title('지역 정보')
+        st.sidebar.write(location_info)
+
+# 좌표를 사용하여 지역 정보 가져오기
+def get_location_info(lat, lon):
+    dataset = pd.read_csv('location_data.csv')
+    location = dataset[(dataset['Latitude'] == lat) & (dataset['Longitude'] == lon)]
+    if len(location) > 0:
+        location_info = location.iloc[0]['LocationInfo']
+        return location_info
+    return None
 
 
 
