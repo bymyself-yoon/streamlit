@@ -163,7 +163,7 @@ def main():
       # extract sub-dataframe
       condition = (merged_gdf['sggnm'] == clicked_sggnm) & (merged_gdf['sidonm'] == clicked_sidonm )
       filtered_df = merged_gdf[condition].iloc[:, 1:37].transpose()
-      filtered_df_title_creation = filtered_df.iloc[5:6]
+      filtered_df_title_creation = filtered_df.iloc[4:5]
       filtered_df_title_finance = filtered_df.iloc[12:13]
       filtered_df_title_facilities = filtered_df.iloc[18:19]
       filtered_df_title_enjoyment = filtered_df.iloc[27:28]
