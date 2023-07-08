@@ -13,6 +13,10 @@ m = folium.Map(location = center, zoom_start = 10)
 click = folium.LatLngPopup()
 click.add_to(m)
 
+def on_map_click(event):
+    lat, lon = event['location']
+    st.sidebar.write(f'클릭 위치의 위도: {lat}, 경도: {lon}')
+
 folium.Choropleth(
     geo_data = geo_data_merge,
     data = df_test,
@@ -91,9 +95,7 @@ with st.sidebar:
 
 st_folium(m, width=1000, returned_objects=[])
 
-def on_map_click(event):
-    lat, lon = event['location']
-    st.sidebar.write(f'클릭 위치의 위도: {lat}, 경도: {lon}')
+
     
 
    
