@@ -163,12 +163,27 @@ def main():
       # extract sub-dataframe
       condition = (merged_gdf['sggnm'] == clicked_sggnm) & (merged_gdf['sidonm'] == clicked_sidonm )
       filtered_df = merged_gdf[condition].iloc[:, 1:37].transpose()
+      creation = filtered_df.iloc[:5]
+      finance = filtered_df.iloc[5:12]
+      facilities = filtered_df.iloc[12:19]
+      enjoyment = filtered_df.iloc[19:28]
+      achivement = filtered_df.iloc[28:36]
+      artsindex = filtered_df.iloc[36:]
+
+      df_creation = pd.DataFrame(creation, columns = creation[4:])
+      df_finance = pd.DataFrame(finance, columns = creation[11:])
+      df_facilities = pd.DataFrame(enjoyment, columns = creation[18:])
+      df_enjoyment = pd.DataFrame(creation, columns = creation[27:])
+      df_archivement = pd.DataFrame(creation, columns = creation[35:])
+
+    '''
       filtered_df_title_creation = filtered_df.iloc[4:5]
       filtered_df_title_finance = filtered_df.iloc[12:13]
       filtered_df_title_facilities = filtered_df.iloc[18:19]
       filtered_df_title_enjoyment = filtered_df.iloc[27:28]
       filtered_df_title_achivement = filtered_df.iloc[35:36]
-      filtered_df_title_artsindex = filtered_df.iloc[36:]
+    '''
+      filtered_df_title_artsindex = filtered_df.iloc[35:]
 
       filtered_df_com_creation = filtered_df.iloc[1:5]
       filtered_df_com_finance = filtered_df.iloc[6:12]
@@ -179,6 +194,7 @@ def main():
 
       # write sub-indices
       st.sidebar.write(f"**{clicked_sidonm}**  **{clicked_sggnm}**")
+      '''
       st.sidebar.table(filtered_df_title_creation)
       st.sidebar.table(filtered_df_com_creation)
       st.sidebar.table(filtered_df_title_finance)
@@ -189,6 +205,14 @@ def main():
       st.sidebar.table(filtered_df_com_enjoyment)
       st.sidebar.table(filtered_df_title_archivement)
       st.sidebar.table(filtered_df_com_archivement)
+      st.sidebar.table(filtered_df_title_artsindex)
+      '''
+
+      st.sidebar.table(df_creation)
+      st.sidebar.table(df_finance)
+      st.sidebar.table(df_facilities)
+      st.sidebar.table(df_enjoyment)
+      st.sidebar.table(df_archivement)
       st.sidebar.table(filtered_df_title_artsindex)
       
 
