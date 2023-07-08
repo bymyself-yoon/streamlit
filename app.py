@@ -164,11 +164,11 @@ def main():
       condition = (merged_gdf['sggnm'] == clicked_sggnm) & (merged_gdf['sidonm'] == clicked_sidonm )
       filtered_df = merged_gdf[condition].iloc[:, 1:37].transpose()
       creation = filtered_df.iloc[:5]
-      finance = filtered_df.iloc[5:12]
-      facilities = filtered_df.iloc[12:19]
-      enjoyment = filtered_df.iloc[19:28]
-      achivement = filtered_df.iloc[28:36]
-      artsindex = filtered_df.iloc[36:]
+      finance = filtered_df.iloc[5:11]
+      facilities = filtered_df.iloc[12:18]
+      enjoyment = filtered_df.iloc[19:27]
+      achivement = filtered_df.iloc[28:35]
+      artsindex = filtered_df.iloc[35:]
 
       df_creation = pd.DataFrame(creation, columns = creation[4:])
       df_finance = pd.DataFrame(finance, columns = creation[11:])
