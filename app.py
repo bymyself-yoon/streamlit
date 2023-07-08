@@ -3,6 +3,8 @@ import streamlit as st
 import folium
 from streamlit_folium import st_folium
 from geopy.geocoders import Nominatim
+from jinja2 import Template
+from folium.map import Marker
 
 df_test = pd.read_csv('data/arts_index.csv')
 geo_data_merge = 'hangjeongdong_merge_last.geojson'
