@@ -1,6 +1,7 @@
 import pandas as pd
 import streamlit as st
 import folium
+import requests
 from streamlit_folium import st_folium
 from geopy.geocoders import Nominatim
 from jinja2 import Template
@@ -9,31 +10,50 @@ from folium.map import Marker
 df_test = pd.read_csv('data/arts_index.csv')
 geo_data_merge = 'hangjeongdong_merge_last.geojson'
 
+'''
+def get_location_info(lat, lon):
+    url = f"https://nominatim.openstreetmap.org/reverse?lat={lat}&lon={lon}&format=json"
+    response = requests.get(url)
+    if response.status_code == 200:
+        data = response.json()
+        address = data.get('display_name')
+        return address
+    else:
+        return None
+
+location_info = get_location_info(lat, lon)
+print(location_info)
+
+click_handler_code = """
+
+function get_location_info(lat, lon) {
+    var url = `https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lon}&format=json`;
+    fetch(url)
+        .then(response => response.json())
+        .then(data => {
+            var address = data.display_name;
+            console.log(address);
+        })
+        .catch(error => {
+            console.error(error);
+        });
+}
+
+function onMapClick(e) {
+    var lat = e.latlng.lat;
+    var lon = e.latlng.lng;
+
+    get_location_info(lat, lon)
+
+    
+}
+
+map.on('click', onMapClick);
+"""
+'''
 center = [37.541, 126.986]
-
-click_template = """{% macro script(this, kwargs) %}
-function onClick(e) {
-                 let point = e.latlng; alert(point)
-                 }
-                 
-    var {{ this.get_name() }} = L.marker(
-        {{ this.location|tojson }},
-        {{ this.options|tojson }}
-    ).addTo({{ this._parent.get_name() }}).on('click', onClick);
-{% endmacro %}"""
-
-# Change template to custom template
-Marker._template = Template(click_template)
-
 m = folium.Map(location = center, zoom_start = 10)
-
-e = folium.Element(click_js)
-html = m.get_root()
-html.script.get_root().render()
-html.script._children[e.get_name()] = e
-def on_map_click(event):
-    lat, lon = event['location']
-    st.sidebar.write(f'클릭 위치의 위도: {lat}, 경도: {lon}')
+# m.add_child(folium.Element('<script>' + click_handler_code + '</script>'))
 
 folium.Choropleth(
     geo_data = geo_data_merge,
