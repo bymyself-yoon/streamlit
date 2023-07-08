@@ -89,6 +89,10 @@ with st.sidebar:
 
 st_folium(m, width=1000, returned_objects=[])
 
+def click_map():
+    folium.ClickForMarker(popup='클릭 위치', callback=on_map_click).add_to(m)
+    return m._repr_html_()
+
 
 
 
