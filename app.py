@@ -202,20 +202,6 @@ def main():
       st.sidebar.table(df_archivement)
       st.sidebar.table(filtered_df_title_artsindex)
 
- '''
-      st.sidebar.table(filtered_df_title_creation)
-      st.sidebar.table(filtered_df_com_creation)
-      st.sidebar.table(filtered_df_title_finance)
-      st.sidebar.table(filtered_df_com_finance)
-      st.sidebar.table(filtered_df_title_facilities)
-      st.sidebar.table(filtered_df_com_facilities)
-      st.sidebar.table(filtered_df_title_enjoyment)
-      st.sidebar.table(filtered_df_com_enjoyment)
-      st.sidebar.table(filtered_df_title_archivement)
-      st.sidebar.table(filtered_df_com_archivement)
-      st.sidebar.table(filtered_df_title_artsindex)
-      '''
-
 if __name__ == '__main__':
     main()
     
