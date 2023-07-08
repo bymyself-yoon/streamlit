@@ -10,6 +10,7 @@ geo_data_merge = 'hangjeongdong_merge_last.geojson'
 center = [37.541, 126.986]
 
 m = folium.Map(location = center, zoom_start = 10)
+m.add_child(folium.LatLngPopup())
 
 folium.Choropleth(
     geo_data = geo_data_merge,
@@ -89,7 +90,7 @@ with st.sidebar:
 
 st_folium(m, width=1000, returned_objects=[])
     
-m.add_child(folium.LatLngPopup())
+
 
 
 
