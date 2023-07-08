@@ -176,6 +176,7 @@ def main():
       df_enjoyment = pd.DataFrame(creation, columns = creation[27:])
       df_archivement = pd.DataFrame(creation, columns = creation[35:])
 
+      st.sidebar.table(df_creation)
     
       filtered_df_title_creation = filtered_df.iloc[4:5]
       filtered_df_title_finance = filtered_df.iloc[12:13]
@@ -195,12 +196,7 @@ def main():
       # write sub-indices
       st.sidebar.write(f"**{clicked_sidonm}**  **{clicked_sggnm}**")
 
-      st.sidebar.table(df_creation)
-      st.sidebar.table(df_finance)
-      st.sidebar.table(df_facilities)
-      st.sidebar.table(df_enjoyment)
-      st.sidebar.table(df_archivement)
-      st.sidebar.table(filtered_df_title_artsindex)
+      
 
 if __name__ == '__main__':
     main()
