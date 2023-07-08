@@ -180,7 +180,7 @@ def main():
       creation_highlighted = creation_without_last_index.append(last_creation)
       styled_creation = creation_highlighted.style.apply(highlight_last_index, axis=1)
     
-      st.sidebar.table(creation)
+      st.sidebar.table(styled_creation)
     
       filtered_df_title_creation = filtered_df.iloc[4:5]
       filtered_df_title_finance = filtered_df.iloc[11:12]
