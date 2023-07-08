@@ -170,6 +170,8 @@ def main():
       achivement = filtered_df.iloc[28:35]
       artsindex = filtered_df.iloc[35:]
 
+      st.sidebar.table(creation)
+
       df_creation = pd.DataFrame(creation, columns = creation[4:])
       df_finance = pd.DataFrame(finance, columns = creation[11:])
       df_facilities = pd.DataFrame(enjoyment, columns = creation[18:])
