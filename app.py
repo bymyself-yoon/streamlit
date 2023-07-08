@@ -10,50 +10,8 @@ from folium.map import Marker
 df_test = pd.read_csv('data/arts_index.csv')
 geo_data_merge = 'hangjeongdong_merge_last.geojson'
 
-'''
-def get_location_info(lat, lon):
-    url = f"https://nominatim.openstreetmap.org/reverse?lat={lat}&lon={lon}&format=json"
-    response = requests.get(url)
-    if response.status_code == 200:
-        data = response.json()
-        address = data.get('display_name')
-        return address
-    else:
-        return None
-
-location_info = get_location_info(lat, lon)
-print(location_info)
-
-click_handler_code = """
-
-function get_location_info(lat, lon) {
-    var url = `https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lon}&format=json`;
-    fetch(url)
-        .then(response => response.json())
-        .then(data => {
-            var address = data.display_name;
-            console.log(address);
-        })
-        .catch(error => {
-            console.error(error);
-        });
-}
-
-function onMapClick(e) {
-    var lat = e.latlng.lat;
-    var lon = e.latlng.lng;
-
-    get_location_info(lat, lon)
-
-    
-}
-
-map.on('click', onMapClick);
-"""
-'''
 center = [37.541, 126.986]
 m = folium.Map(location = center, zoom_start = 10)
-# m.add_child(folium.Element('<script>' + click_handler_code + '</script>'))
 
 folium.Choropleth(
     geo_data = geo_data_merge,
