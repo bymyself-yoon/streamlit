@@ -11,10 +11,26 @@ geo_data_merge = 'hangjeongdong_merge_last.geojson'
 
 center = [37.541, 126.986]
 
-m = folium.Map(location = center, zoom_start = 10)
-click = folium.LatLngPopup()
-click.add_to(m)
+click_template = """{% macro script(this, kwargs) %}
+function onClick(e) {
+                 let point = e.latlng; alert(point)
+                 }
+                 
+    var {{ this.get_name() }} = L.marker(
+        {{ this.location|tojson }},
+        {{ this.options|tojson }}
+    ).addTo({{ this._parent.get_name() }}).on('click', onClick);
+{% endmacro %}"""
 
+# Change template to custom template
+Marker._template = Template(click_template)
+
+m = folium.Map(location = center, zoom_start = 10)
+
+e = folium.Element(click_js)
+html = m.get_root()
+html.script.get_root().render()
+html.script._children[e.get_name()] = e
 def on_map_click(event):
     lat, lon = event['location']
     st.sidebar.write(f'클릭 위치의 위도: {lat}, 경도: {lon}')
