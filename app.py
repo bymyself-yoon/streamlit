@@ -65,7 +65,7 @@ def makeMarker(n):
     folium.Circle(
         location=top[i],
         radius = radius,
-        popup=<pre>+df_top['구'].values.tolist()[i]</pre>,
+        popup = '<pre>'+df_top['구'].values.tolist()[i]+'</pre>',
         color = color,
         fill = True,
         fill_color = color,
