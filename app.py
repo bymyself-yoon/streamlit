@@ -153,6 +153,16 @@ def main():
   # map
   st_data = st_folium(m, width=1500, height=800)
 
+  header_style = '''
+    <style>
+        table tbody tr:first-child td {
+            background-color: orange;
+        }
+    </style>
+
+'''
+st.markdown(header_style, unsafe_allow_html=True)
+
   # process returned objects by user action
   if st_data['last_clicked'] is not None:
     if 'last_active_drawing' in st_data:
@@ -169,8 +179,6 @@ def main():
       enjoyment = filtered_df.iloc[19:27]
       achivement = filtered_df.iloc[28:35]
       artsindex = filtered_df.iloc[35:]
-
-      st.sidebar.table(creation)
 
       df_creation = pd.DataFrame(creation, columns = creation[4:])
       df_finance = pd.DataFrame(finance, columns = creation[11:])
@@ -196,19 +204,6 @@ def main():
 
       # write sub-indices
       st.sidebar.write(f"**{clicked_sidonm}**  **{clicked_sggnm}**")
-      '''
-      st.sidebar.table(filtered_df_title_creation)
-      st.sidebar.table(filtered_df_com_creation)
-      st.sidebar.table(filtered_df_title_finance)
-      st.sidebar.table(filtered_df_com_finance)
-      st.sidebar.table(filtered_df_title_facilities)
-      st.sidebar.table(filtered_df_com_facilities)
-      st.sidebar.table(filtered_df_title_enjoyment)
-      st.sidebar.table(filtered_df_com_enjoyment)
-      st.sidebar.table(filtered_df_title_archivement)
-      st.sidebar.table(filtered_df_com_archivement)
-      st.sidebar.table(filtered_df_title_artsindex)
-      '''
 
       st.sidebar.table(df_creation)
       st.sidebar.table(df_finance)
