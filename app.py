@@ -153,16 +153,6 @@ def main():
   # map
   st_data = st_folium(m, width=1500, height=800)
 
-  header_style = '''
-    <style>
-        table tbody tr:first-child td {
-            background-color: orange;
-        }
-    </style>
-
-'''
-st.markdown(header_style, unsafe_allow_html=True)
-
   # process returned objects by user action
   if st_data['last_clicked'] is not None:
     if 'last_active_drawing' in st_data:
