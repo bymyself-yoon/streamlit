@@ -35,13 +35,13 @@ merged_gdf = gpd.GeoDataFrame(merged_df, geometry="geometry")
 center = [37.541, 126.986]
 m = folium.Map(location = center, zoom_start = 10)
 
-# ???
-def geocoding(address):
-    geolocoder = Nominatim(user_agent = 'South Korea', timeout=None)
-    geo = geolocoder.geocode(address)
-    crd = {"lat": str(geo.latitude), "lng": str(geo.longitude)}
+# # ???
+# def geocoding(address):
+#     geolocoder = Nominatim(user_agent = 'South Korea', timeout=None)
+#     geo = geolocoder.geocode(address)
+#     crd = {"lat": str(geo.latitude), "lng": str(geo.longitude)}
 
-    return crd
+#     return crd
 
 def get_top_communities(n):
   '''
