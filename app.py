@@ -102,12 +102,14 @@ def on_map_click(event):
 
 # 좌표를 사용하여 지역 정보 가져오기
 def get_location_info(lat, lon):
-    dataset = pd.read_csv('location_data.csv')
-    location = dataset[(dataset['Latitude'] == lat) & (dataset['Longitude'] == lon)]
+    dataset = pd.read_csv('korea_administrative_division_latitude_longitude.csv')
+    location = dataset[(dataset['latitude'] == lat) & (dataset['longitude'] == lon)]
     if len(location) > 0:
         location_info = location.iloc[0]['LocationInfo']
         return location_info
     return None
+
+
 
 
 
