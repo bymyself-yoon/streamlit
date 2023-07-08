@@ -163,28 +163,26 @@ def main():
       # extract sub-dataframe
       condition = (merged_gdf['sggnm'] == clicked_sggnm) & (merged_gdf['sidonm'] == clicked_sidonm )
       filtered_df = merged_gdf[condition].iloc[:, 1:37].transpose()
-      creation = filtered_df.iloc[:5]
-      finance = filtered_df.iloc[5:11]
-      facilities = filtered_df.iloc[12:18]
-      enjoyment = filtered_df.iloc[19:27]
-      achivement = filtered_df.iloc[28:35]
+      creation = filtered_df.iloc[:4]
+      finance = filtered_df.iloc[5:10]
+      facilities = filtered_df.iloc[12:17]
+      enjoyment = filtered_df.iloc[19:26]
+      achivement = filtered_df.iloc[28:34]
       artsindex = filtered_df.iloc[35:]
-
-      df_creation = pd.DataFrame(creation, columns = creation[4:])
-      df_finance = pd.DataFrame(finance, columns = creation[11:])
-      df_facilities = pd.DataFrame(enjoyment, columns = creation[18:])
-      df_enjoyment = pd.DataFrame(creation, columns = creation[27:])
-      df_archivement = pd.DataFrame(creation, columns = creation[35:])
-
-      st.sidebar.table(df_creation)
     
       filtered_df_title_creation = filtered_df.iloc[4:5]
-      filtered_df_title_finance = filtered_df.iloc[12:13]
-      filtered_df_title_facilities = filtered_df.iloc[18:19]
-      filtered_df_title_enjoyment = filtered_df.iloc[27:28]
-      filtered_df_title_achivement = filtered_df.iloc[35:36]
+      filtered_df_title_finance = filtered_df.iloc[11:12]
+      filtered_df_title_facilities = filtered_df.iloc[17:18]
+      filtered_df_title_enjoyment = filtered_df.iloc[26:27]
+      filtered_df_title_achivement = filtered_df.iloc[34:35]
 
       filtered_df_title_artsindex = filtered_df.iloc[35:]
+
+      creation.insert(0, filtered_df_title_creation)
+      finance.insert(0, filtered_df_title_finance) 
+      facilities.insert(0, filtered_df_title_facilities)
+      enjoyment.insert(0, filtered_df_title_enjoyment)
+      archivement.insert(0, filtered_df_title_archivement)
 
       filtered_df_com_creation = filtered_df.iloc[1:5]
       filtered_df_com_finance = filtered_df.iloc[6:12]
@@ -195,6 +193,13 @@ def main():
 
       # write sub-indices
       st.sidebar.write(f"**{clicked_sidonm}**  **{clicked_sggnm}**")
+
+      st.sidebar.table(creation)
+      st.sidebar.table(finance)
+      st.sidebar.table(facilities)
+      st.sidebar.table(enjoyment)
+      st.sidebar.table(archivement)
+      st.sidebar.table(filtered_df_title_artsindex)
 
       
 
