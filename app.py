@@ -3,9 +3,6 @@ import streamlit as st
 import folium
 import geopandas as gpd
 from streamlit_folium import st_folium
-# from geopy.geocoders import Nominatim
-# from jinja2 import Template
-# from folium.map import Marker
 
 def set_page_config():
     """Sets the page configuration.
@@ -34,14 +31,6 @@ merged_gdf = gpd.GeoDataFrame(merged_df, geometry="geometry")
 # global variables
 center = [37.541, 126.986]
 m = folium.Map(location = center, zoom_start = 10)
-
-# # ???
-# def geocoding(address):
-#     geolocoder = Nominatim(user_agent = 'South Korea', timeout=None)
-#     geo = geolocoder.geocode(address)
-#     crd = {"lat": str(geo.latitude), "lng": str(geo.longitude)}
-
-#     return crd
 
 def get_top_communities(n):
   '''
@@ -174,11 +163,34 @@ def main():
       # extract sub-dataframe
       condition = (merged_gdf['sggnm'] == clicked_sggnm) & (merged_gdf['sidonm'] == clicked_sidonm )
       filtered_df = merged_gdf[condition].iloc[:, 1:37].transpose()
+      filtered_df_title_creation = filtered_df.iloc[5:6]
+      filtered_df_title_finance = filtered_df.iloc[12:13]
+      filtered_df_title_facilities = filtered_df.iloc[18:19]
+      filtered_df_title_enjoyment = filtered_df.iloc[27:28]
+      filtered_df_title_achivement = filtered_df.iloc[35:36]
+      filtered_df_title_artsindex = filtered_df.iloc[36:]
+
+      filtered_df_com_creation = filtered_df.iloc[1:5]
+      filtered_df_com_finance = filtered_df.iloc[6:12]
+      filtered_df_com_facilities = filtered_df.iloc[13:18]
+      filtered_df_com_enjoyment = filtered_df.iloc[19:27]
+      filtered_df_com_achivement = filtered_df.iloc[28:35]
       # print(filtered_df)
 
       # write sub-indices
       st.sidebar.write(f"**{clicked_sidonm}**  **{clicked_sggnm}**")
-      st.sidebar.table(filtered_df)
+      st.sidebar.table(filtered_df_title_creation)
+      st.sidebar.table(filtered_df_com_creation)
+      st.sidebar.table(filtered_df_title_finance)
+      st.sidebar.table(filtered_df_com_finance)
+      st.sidebar.table(filtered_df_title_facilities)
+      st.sidebar.table(filtered_df_com_facilities)
+      st.sidebar.table(filtered_df_title_enjoyment)
+      st.sidebar.table(filtered_df_com_enjoyment)
+      st.sidebar.table(filtered_df_title_archivement)
+      st.sidebar.table(filtered_df_com_archivement)
+      st.sidebar.table(filtered_df_title_artsindex)
+      
 
 if __name__ == '__main__':
     main()
