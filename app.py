@@ -163,12 +163,14 @@ def main():
       # extract sub-dataframe
       condition = (merged_gdf['sggnm'] == clicked_sggnm) & (merged_gdf['sidonm'] == clicked_sidonm )
       filtered_df = merged_gdf[condition].iloc[:, 1:37].transpose()
-      creation = filtered_df.iloc[:4]
-      finance = filtered_df.iloc[5:10]
-      facilities = filtered_df.iloc[12:17]
-      enjoyment = filtered_df.iloc[19:26]
-      achivement = filtered_df.iloc[28:34]
+      creation = filtered_df[4:5] + filtered_df.iloc[:4]
+      finance = filtered_df.iloc[5:11]
+      facilities = filtered_df.iloc[12:18]
+      enjoyment = filtered_df.iloc[19:27]
+      achivement = filtered_df.iloc[28:35]
       artsindex = filtered_df.iloc[35:]
+
+      st.sidebar.table(creation)
     
       filtered_df_title_creation = filtered_df.iloc[4:5]
       filtered_df_title_finance = filtered_df.iloc[11:12]
@@ -177,12 +179,6 @@ def main():
       filtered_df_title_achivement = filtered_df.iloc[34:35]
 
       filtered_df_title_artsindex = filtered_df.iloc[35:]
-
-      creation.insert(0, filtered_df_title_creation)
-      finance.insert(0, filtered_df_title_finance) 
-      facilities.insert(0, filtered_df_title_facilities)
-      enjoyment.insert(0, filtered_df_title_enjoyment)
-      archivement.insert(0, filtered_df_title_archivement)
 
       filtered_df_com_creation = filtered_df.iloc[1:5]
       filtered_df_com_finance = filtered_df.iloc[6:12]
