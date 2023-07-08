@@ -199,7 +199,7 @@ def main():
       st.sidebar.table(facilities)
       st.sidebar.table(enjoyment)
       st.sidebar.table(archivement)
-      st.sidebar.table(filtered_df_title_artsindex)
+      
 
       
 
