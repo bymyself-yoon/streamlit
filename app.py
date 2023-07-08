@@ -153,6 +153,11 @@ def main():
   # map
   st_data = st_folium(m, width=1500, height=800)
 
+  def highlight_last_index(x):
+    if x.name == len(x) - 1:
+        return ['background-color: yellow'] * len(x)
+    return [''] * len(x)
+
   # process returned objects by user action
   if st_data['last_clicked'] is not None:
     if 'last_active_drawing' in st_data:
@@ -169,9 +174,12 @@ def main():
       enjoyment = filtered_df.iloc[19:27]
       achivement = filtered_df.iloc[28:35]
       artsindex = filtered_df.iloc[35:]
-        
-      styled_creation = creation.style.apply(lambda x: ['background-color: yellow' if i == len(x)-1 else '' for i in range(len(x))], axis=1)
-
+    
+      last_creation = creation.iloc[[-1]]
+      creation_without_last_index = creation.iloc[:-1]
+      creation_highlighted = creation_without_last_index.append(last_creation)
+      styled_creation = creation_highlighted.style.apply(highlight_last_index, axis=1)
+    
       st.sidebar.table(creation)
     
       filtered_df_title_creation = filtered_df.iloc[4:5]
