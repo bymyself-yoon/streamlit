@@ -163,21 +163,17 @@ def main():
       # extract sub-dataframe
       condition = (merged_gdf['sggnm'] == clicked_sggnm) & (merged_gdf['sidonm'] == clicked_sidonm )
       filtered_df = merged_gdf[condition].iloc[:, 1:37].transpose()
-      creation = filtered_df.iloc[:5]
+      creation = [filtered_df.iloc[:4]].split(',')
       finance = filtered_df.iloc[5:11]
       facilities = filtered_df.iloc[12:18]
       enjoyment = filtered_df.iloc[19:27]
       achivement = filtered_df.iloc[28:35]
       artsindex = filtered_df.iloc[35:]
 
-      last_index = creation.iloc[[-1]]
-      df_without_last_index = creation.iloc[:-1]
-      df_highlighted = pd.concat([last_index, df_without_last_index])
-
-      styled_df = df_highlighted.style.apply(lambda x: ['background-color: yellow' if x.name == 0 else '' for _ in x], axis=1)
-
+      title_creation = filtered_df.iloc[4:5].item
+      creation.insert(0, title_creation)
     
-      st.sidebar.table(styled_df)
+      st.sidebar.table(creation)
     
       filtered_df_title_creation = filtered_df.iloc[4:5]
       filtered_df_title_finance = filtered_df.iloc[11:12]
