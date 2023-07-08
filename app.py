@@ -105,7 +105,7 @@ def get_location_info(lat, lon):
         return location_info
     return None
 
-folium.ClickForMarker(popup='클릭 위치', callback=on_map_click).add_to(m)
+m.add_child(folium.LatLngPopup(popup='클릭 위치', callback=on_map_click))
 
 
 
