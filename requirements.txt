@@ -4,6 +4,8 @@ numpy
 pandas
 folium
 streamlit_folium
-geopy
-jinja2
-Marker
+# geopy
+geopandas
+# jinja2
+# Marker
+
