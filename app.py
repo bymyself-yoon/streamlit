@@ -176,7 +176,7 @@ def main():
       enjoyment = filtered_df.iloc[[26, 18, 19, 20, 21, 22, 23, 24, 25]]
       achievement = filtered_df.iloc[[34, 27, 28, 29, 30, 31, 32, 33]]
 
-      st.write(click_sidonm)
+      st.write(clicked_sidonm)
 
 
       # styled_creation = creation.style.applymap(draw_color_cell, subset=pd.IndexSlice[0, 0])
