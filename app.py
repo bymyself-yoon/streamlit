@@ -172,6 +172,8 @@ def main():
       # facilities = filtered_df.iloc[12:18]
       # enjoyment = filtered_df.iloc[19:27]
       # achivement = filtered_df.iloc[28:35]
+
+      st.sidebar.write(filtered_df)
       
       # print(filtered_df)
     
