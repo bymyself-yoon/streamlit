@@ -171,7 +171,7 @@ def main():
 
       creation_re = creation.rename(columns=filtered_df.iloc[4])
 
-      st.sidebar.dataframe(creation_re)
+      st.sidebar.table(creation_re)
       # print(filtered_df)
 
      
