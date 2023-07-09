@@ -169,9 +169,9 @@ def main():
       enjoyment = filtered_df.iloc[19:27]
       achivement = filtered_df.iloc[28:35]
       
-      creation.index.name = "예술창작/생산지수"
-      creation_re = creation.rename(columns=filtered_df.iloc[4])
       
+      creation_re = creation.rename(columns=filtered_df.iloc[4])
+      creation_re = creation_re.index.name = "예술창작/생산지수"
         
       st.sidebar.table(creation_re)
       # print(filtered_df)
