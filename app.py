@@ -163,22 +163,18 @@ def main():
       # extract sub-dataframe
       condition = (merged_gdf['sggnm'] == clicked_sggnm) & (merged_gdf['sidonm'] == clicked_sidonm )
       filtered_df = merged_gdf[condition].iloc[:, 1:37].transpose()
-      creation = filtered_df.iloc[:4]
+      creation = filtered_df.iloc[[4, 0, 1, 2, 3]
       finance = filtered_df.iloc[5:11]
       facilities = filtered_df.iloc[12:18]
       enjoyment = filtered_df.iloc[19:27]
       achivement = filtered_df.iloc[28:35]
-      
-      
-      creation_re = creation.rename(columns=filtered_df.iloc[4])
-      creation_rere=creation_re.rename_axis('예술')
-      
         
-      st.sidebar.table(creation_rere)
+      
       # print(filtered_df)
 
-     
-
+     styled_creation = creation.style.applymap(lambda x: 'background-color: yellow', subset=pd.IndexSlice[0])
+     st.sidebar.table(styled_creation)
+      
       # write sub-indices
       st.sidebar.write(f"**{clicked_sidonm}**  **{clicked_sggnm}**")
 
