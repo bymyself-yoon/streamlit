@@ -21,8 +21,8 @@ seoul_df = pd.read_csv('data/Seoul_arts_index_indetail.csv')
 filename_geodata = 'hangjeongdong_merge_last.geojson'
 admin_gdf = gpd.read_file(filename_geodata)
 
-merged_df = pd.merge(seoul_df, admin_gdf, left_on='구', right_on='sggnm', how='inner')
-merged_df = pd.merge(busan_df, admin_gdf, left_on='구', right_on='sggnm', how='inner')
+merged_seoul_df = pd.merge(seoul_df, admin_gdf, left_on='구', right_on='sggnm', how='inner')
+merged_busan_df = pd.merge(busan_df, admin_gdf, left_on='구', right_on='sggnm', how='inner')
 
 merged_df = pd.concat([merged_seoul_df, merged_busan_df])
 merged_df = merged_df.drop_duplicates(subset=['sidonm', 'sggnm'])
@@ -153,10 +153,6 @@ def main():
   # map
   st_data = st_folium(m, width=1500, height=800)
 
-  def draw_color_cell(x,color):
-      color = f'background-color:{color}'
-      return color
-    
   # process returned objects by user action
   if st_data['last_clicked'] is not None:
     if 'last_active_drawing' in st_data:
@@ -165,7 +161,7 @@ def main():
       # print(st_data['last_active_drawing']['properties']['sggnm'])
 
       # extract sub-dataframe
-          condition = (merged_gdf['sggnm'] == clicked_sggnm) & (merged_gdf['sidonm'] == clicked_sidonm )
+          condition = (merged_gdf['sggnm'] == clicked_sggnm) & (merged_gdf['sidonm'] == clicked_sidonm ) 
           filtered_df = merged_gdf[condition].iloc[:, 0:37].transpose()
           filtered_df.rename(columns=filtered_df.iloc[0],inplace=True)
           filtered_df = filtered_df.drop(filtered_df.index[0])
