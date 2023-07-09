@@ -163,14 +163,12 @@ def main():
       # extract sub-dataframe
       condition = (merged_gdf['sggnm'] == clicked_sggnm) & (merged_gdf['sidonm'] == clicked_sidonm )
       filtered_df = merged_gdf[condition].iloc[:, 1:37].transpose()
-      creation = filtered_df.iloc[:4]
+      creation = filtered_df.iloc[:5]
       finance = filtered_df.iloc[5:11]
       facilities = filtered_df.iloc[12:18]
       enjoyment = filtered_df.iloc[19:27]
       achivement = filtered_df.iloc[28:35]
       artsindex = filtered_df.iloc[35:]
-
-      creation = creation[["예술창작/생산지수", "문화예술종사자 수", "예술 활동가 수", "문화예술 콘텐츠 건수", "문화예술 콘텐츠 횟수"]]
     
       st.sidebar.table(creation)
     
