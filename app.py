@@ -172,12 +172,9 @@ def main():
       facilities = filtered_df.iloc[12:18]
       enjoyment = filtered_df.iloc[19:27]
       achivement = filtered_df.iloc[28:35]
-        
-      
       # print(filtered_df)
-
-     creation.styled.applymap(color_cell, color='#ff9090', subset=pd.IndexSlice[0])
-     st.sidebar.table(creation)
+      
+      st.sidebar.table(creation)
       
       # write sub-indices
       st.sidebar.write(f"**{clicked_sidonm}**  **{clicked_sggnm}**")
