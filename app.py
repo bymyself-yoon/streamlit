@@ -167,14 +167,14 @@ def main():
       # extract sub-dataframe
       condition = (merged_gdf['sggnm'] == clicked_sggnm) & (merged_gdf['sidonm'] == clicked_sidonm )
       filtered_df = merged_gdf[condition].iloc[:, 1:37].transpose()
-      creation = filtered_df.iloc[[4, 0, 1, 2, 3]]
-      finance = filtered_df.iloc[5:11]
-      facilities = filtered_df.iloc[12:18]
-      enjoyment = filtered_df.iloc[19:27]
-      achivement = filtered_df.iloc[28:35]
+      # creation = filtered_df.iloc[[4, 0, 1, 2, 3]]
+      # finance = filtered_df.iloc[5:11]
+      # facilities = filtered_df.iloc[12:18]
+      # enjoyment = filtered_df.iloc[19:27]
+      # achivement = filtered_df.iloc[28:35]
+      
       # print(filtered_df)
-        
-      creation.style.applymap(color_cell,color='#ff9090',subset=pd.IndexSlice[0,['424']])
+    
       st.sidebar.table(creation)
       
       # write sub-indices
