@@ -177,8 +177,8 @@ def main():
       achievement = filtered_df.iloc[[34, 27, 28, 29, 30, 31, 32, 33]]
 
 
-      # df.style.applymap(draw_color_cell,color='#ff9090',subset=pd.IndexSlice[0,clicked_sggnm])
-      
+      styled_creation = creation.style.applymap(draw_color_cell, subset=pd.IndexSlice[0, 0])
+
       # print(filtered_df)
     
       # st.sidebar.table(filtered_df)
@@ -186,7 +186,7 @@ def main():
       # write sub-indices
       st.sidebar.write(f"**{clicked_sidonm}**  **{clicked_sggnm}**")
 
-      st.sidebar.table(creation)
+      st.sidebar.table(styled_creation)
       st.sidebar.table(finance)
       st.sidebar.table(facilities)
       st.sidebar.table(enjoyment)
