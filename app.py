@@ -177,7 +177,7 @@ def main():
       
       # print(filtered_df)
     
-      # st.sidebar.table(filtered_df)
+      st.sidebar.table(filtered_df)
     
       # write sub-indices
       st.sidebar.write(f"**{clicked_sidonm}**  **{clicked_sggnm}**")
