@@ -153,9 +153,9 @@ def main():
   # map
   st_data = st_folium(m, width=1500, height=800)
 
-  def color_cell(x,color):
-    color = f'background-color:{color}'
-    return color
+  def draw_color_cell(x,color):
+      color = f'background-color:{color}'
+      return color
     
   # process returned objects by user action
   if st_data['last_clicked'] is not None:
@@ -167,6 +167,7 @@ def main():
       # extract sub-dataframe
       condition = (merged_gdf['sggnm'] == clicked_sggnm) & (merged_gdf['sidonm'] == clicked_sidonm )
       filtered_df = merged_gdf[condition].iloc[:, 0:37].transpose()
+      c = filtered_df.iloc[0]
       filtered_df.rename(columns=filtered_df.iloc[0],inplace=True)
       filtered_df = filtered_df.drop(filtered_df.index[0])
       creation = filtered_df.iloc[[4, 0, 1, 2, 3]]
@@ -175,7 +176,9 @@ def main():
       enjoyment = filtered_df.iloc[[26, 18, 19, 20, 21, 22, 23, 24, 25]]
       achievement = filtered_df.iloc[[34, 27, 28, 29, 30, 31, 32, 33]]
 
-      creation.style.applymap(color_cell,color='#ff9090',subset=pd.IndexSlice[0, [filtered_df.iloc[0]]])
+      st.write(c)
+
+      # df.style.applymap(draw_color_cell,color='#ff9090',subset=pd.IndexSlice[0,[filtered_df]])
       
       # print(filtered_df)
     
