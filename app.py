@@ -169,7 +169,7 @@ def main():
       enjoyment = filtered_df.iloc[19:27]
       achivement = filtered_df.iloc[28:35]
 
-      st.sidebar.table(creation)
+      st.sidebar.dataframe(creation)
       # print(filtered_df)
 
      
