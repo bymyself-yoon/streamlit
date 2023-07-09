@@ -169,6 +169,8 @@ def main():
       enjoyment = filtered_df.iloc[19:27]
       achivement = filtered_df.iloc[28:35]
 
+      creation_re = creation.rename(columns=creation.iloc[0])
+
       st.sidebar.dataframe(creation)
       # print(filtered_df)
 
