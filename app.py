@@ -167,8 +167,8 @@ def main():
       # extract sub-dataframe
       condition = (merged_gdf['sggnm'] == clicked_sggnm) & (merged_gdf['sidonm'] == clicked_sidonm )
       filtered_df = merged_gdf[condition].transpose()
-      filtered_df.rename(columns=df.iloc[0],inplace=True)
-      filtered_df = filtered_df.drop(df.index[0])
+      filtered_df.rename(columns=filtered_df.iloc[0],inplace=True)
+      filtered_df = filtered_df.drop(filtered_df.index[0])
       creation = filtered_df.iloc[[4, 0, 1, 2, 3]]
       # finance = filtered_df.iloc[5:11]
       # facilities = filtered_df.iloc[12:18]
