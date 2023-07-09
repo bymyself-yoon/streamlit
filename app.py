@@ -13,9 +13,6 @@ def set_page_config():
     )
 set_page_config()
 
-# loads arts_vib_index data & geodata
-# df_test = pd.read_csv('data/arts_index.csv')
-
 busan_df = pd.read_csv('data/Busan_arts_index_indetail.csv')
 seoul_df = pd.read_csv('data/Seoul_arts_index_indetail.csv')
 filename_geodata = 'hangjeongdong_merge_last.geojson'
@@ -25,7 +22,6 @@ merged_seoul_df = pd.merge(seoul_df, admin_gdf, left_on='구', right_on='sggnm',
 merged_busan_df = pd.merge(busan_df, admin_gdf, left_on='구', right_on='sggnm', how='inner')
 
 merged_df = pd.concat([merged_seoul_df, merged_busan_df])
-# merged_df_all = pd.merge(merged_busan_df, merged_seoul_df, how='outer')
 merged_df = merged_df.drop_duplicates(subset=['sidonm', 'sggnm'])
 merged_gdf = gpd.GeoDataFrame(merged_df, geometry="geometry")
 
@@ -38,26 +34,9 @@ def get_top_communities(n):
     예술활력지수가 높은 N개의 커뮤니티를 반환
     @n : TOP-N
   '''
-  # top = df_test['arts_index'].sort_values(ascending=False).iloc[0:n]
-  # df_top = df_test.iloc[top.index]
-
   top_communities_df = merged_gdf.nlargest(n, '예술활력지수')
   return top_communities_df
   # print(top_communities_df)
-  
-  # result = []
-  # for i in range(n):
-  #   if df_top.index[i] > 15:
-  #     jiyeok = "서울"
-  #   else:
-  #     jiyeok = "부산"
-
-  #   geo = jiyeok + " " + df_top['구'].values.tolist()[i]
-  #   crd = geocoding(geo)
-  #   result.append([crd['lat'], crd['lng']])
-
-  # return (result, df_top)
-
 
 def add_circle_area(n):
   '''
@@ -85,26 +64,6 @@ def add_circle_area(n):
         fill_color = color,
         fill_opacity=100,
     ).add_to(m)
-    
-  # if n == 10:
-  #   df_top = df_top.iloc[0:n]
-  #   top = top[0:n]
-  #   radius = 700
-  #   color = 'crimson'
-  # else:
-  #   radius = 1000
-  #   color = 'pink'
-
-  # for i in range(n):
-  #   folium.Circle(
-  #       location=top[i],
-  #       radius = radius,
-  #       popup= df_top['구'].values.tolist()[i],
-  #       color = color,
-  #       fill = True,
-  #       fill_color = color,
-  #       fill_opacity=100,
-  #   ).add_to(m)
 
 def select_top_communities(cmd):
     '''
@@ -172,8 +131,6 @@ def main():
       enjoyment = filtered_df.iloc[[26, 18, 19, 20, 21, 22, 23, 24, 25]]
       achievement = filtered_df.iloc[[34, 27, 28, 29, 30, 31, 32, 33]]
       # print(filtered_df)
-    
-      # st.sidebar.table(filtered_df)
     
       # write sub-indices
       st.sidebar.write(f"**{clicked_sidonm}**  **{clicked_sggnm}**")
