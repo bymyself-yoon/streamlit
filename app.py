@@ -152,6 +152,10 @@ def main():
       
   # map
   st_data = st_folium(m, width=1500, height=800)
+
+  def color_cell(x,color):
+    color = f'background-color:{color}'
+    return color
     
   # process returned objects by user action
   if st_data['last_clicked'] is not None:
@@ -172,8 +176,8 @@ def main():
       
       # print(filtered_df)
 
-     styled_creation = creation.style.applymap(lambda x: 'background-color: yellow', subset=pd.IndexSlice[0])
-     st.sidebar.table(styled_creation)
+     creation.styled.applymap(color_cell, color='#ff9090', subset=pd.IndexSlice[0])
+     st.sidebar.table(creation)
       
       # write sub-indices
       st.sidebar.write(f"**{clicked_sidonm}**  **{clicked_sggnm}**")
