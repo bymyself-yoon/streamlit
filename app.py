@@ -161,7 +161,7 @@ def main():
       # print(st_data['last_active_drawing']['properties']['sggnm'])
 
       # extract sub-dataframe
-          condition = (merged_gdf['sggnm'] == clicked_sggnm) & (merged_gdf['sidonm'] == clicked_sidonm ) 
+          condition = (merged_gdf['sggnm'] == clicked_sggnm) & (merged_gdf['sidonm'] == clicked_sidonm) 
           filtered_df = merged_gdf[condition].iloc[:, 0:37].transpose()
           filtered_df.rename(columns=filtered_df.iloc[0],inplace=True)
           filtered_df = filtered_df.drop(filtered_df.index[0])
