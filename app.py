@@ -170,8 +170,7 @@ def main():
       achivement = filtered_df.iloc[28:35]
       artsindex = filtered_df.iloc[35:]
 
-      title_creation = filtered_df.iloc[4:5].item
-      creation.insert(0, title_creation)
+      creation = creation[["예술창작/생산지수", "문화예술종사자 수", "예술 활동가 수", "문화예술 콘텐츠 건수", "문화예술 콘텐츠 횟수"]]
     
       st.sidebar.table(creation)
     
