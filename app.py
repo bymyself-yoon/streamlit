@@ -170,9 +170,9 @@ def main():
       achivement = filtered_df.iloc[28:35]
       artsindex = filtered_df.iloc[35:]
 
-      creation = creation.reindex([4, 0, 1, 2, 3])
+      creation_re = creation.reindex([4, 0, 1, 2, 3])
     
-      st.sidebar.table(creation)
+      st.sidebar.table(creation_re)
     
       filtered_df_title_creation = filtered_df.iloc[4:5]
       filtered_df_title_finance = filtered_df.iloc[11:12]
