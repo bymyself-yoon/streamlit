@@ -173,7 +173,8 @@ def main():
       enjoyment = filtered_df.iloc[19:27]
       achivement = filtered_df.iloc[28:35]
       # print(filtered_df)
-      
+        
+      creation.style.applymap(color_cell,color='#ff9090',subset=pd.IndexSlice[0,['424']])
       st.sidebar.table(creation)
       
       # write sub-indices
