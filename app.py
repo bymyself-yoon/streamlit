@@ -173,7 +173,7 @@ def main():
       finance = filtered_df.iloc[[11, 5, 6, 7, 8, 9, 10]]
       facilities = filtered_df.iloc[[17, 12, 13, 14, 15, 16]]
       enjoyment = filtered_df.iloc[[26, 18, 19, 20, 21, 22, 23, 24, 25]]
-      achivement = filtered_df.iloc[[35, 28, 29, 30, 31, 32, 33, 34]]
+      achivement = filtered_df.iloc[[34, 27, 28, 29, 30, 31, 32, 33]]
       
       # print(filtered_df)
     
