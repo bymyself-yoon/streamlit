@@ -171,9 +171,10 @@ def main():
       
       
       creation_re = creation.rename(columns=filtered_df.iloc[4])
-      creation_re = creation_re.index.name = "예술창작/생산지수"
+      creation_rere=creation_re.rename_axis('예술')
+      
         
-      st.sidebar.table(creation_re)
+      st.sidebar.table(creation_rere)
       # print(filtered_df)
 
      
