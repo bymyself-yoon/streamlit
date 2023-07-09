@@ -186,7 +186,7 @@ def main():
       # write sub-indices
       st.sidebar.write(f"**{clicked_sidonm}**  **{clicked_sggnm}**")
 
-      st.sidebar.table(styled_creation)
+      st.sidebar.dataframe(styled_creation)
       st.sidebar.table(finance)
       st.sidebar.table(facilities)
       st.sidebar.table(enjoyment)
