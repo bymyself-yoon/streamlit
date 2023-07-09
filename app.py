@@ -175,18 +175,18 @@ def main():
       
       # print(filtered_df)
     
-      st.sidebar.table(creation)
+      # st.sidebar.table(creation)
       
       # write sub-indices
       st.sidebar.write(f"**{clicked_sidonm}**  **{clicked_sggnm}**")
 
       st.sidebar.table(filtered_df)
 
-      st.sidebar.table(creation)
-      st.sidebar.table(finance)
-      st.sidebar.table(facilities)
-      st.sidebar.table(enjoyment)
-      st.sidebar.table(archivement)
+      # st.sidebar.table(creation)
+      # st.sidebar.table(finance)
+      # st.sidebar.table(facilities)
+      # st.sidebar.table(enjoyment)
+      # st.sidebar.table(archivement)
       
 
       
