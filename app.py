@@ -169,6 +169,8 @@ def main():
       enjoyment = filtered_df.iloc[19:27]
       achivement = filtered_df.iloc[28:35]
       artsindex = filtered_df.iloc[35:]
+
+      creation = creation.reindex([4, 0, 1, 2, 3])
     
       st.sidebar.table(creation)
     
