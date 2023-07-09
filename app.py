@@ -170,8 +170,6 @@ def main():
       achivement = filtered_df.iloc[28:35]
       artsindex = filtered_df.iloc[35:]
     
-      st.sidebar.table(creation)
-    
       filtered_df_title_creation = filtered_df.iloc[4:5]
       filtered_df_title_finance = filtered_df.iloc[11:12]
       filtered_df_title_facilities = filtered_df.iloc[17:18]
@@ -181,6 +179,7 @@ def main():
       # print(filtered_df)
 
       merge_creation = pd.concat([filtered_df_title_creation], [creation])
+      st.sidebar.table(merge_creation)
 
       # write sub-indices
       st.sidebar.write(f"**{clicked_sidonm}**  **{clicked_sggnm}**")
