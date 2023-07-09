@@ -170,7 +170,8 @@ def main():
       achivement = filtered_df.iloc[28:35]
 
       creation_re = creation.rename(columns=filtered_df.iloc[4])
-
+      creation_re.index.name = "예술창작/생산지수"
+        
       st.sidebar.table(creation_re)
       # print(filtered_df)
 
