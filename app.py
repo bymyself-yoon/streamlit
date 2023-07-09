@@ -177,7 +177,7 @@ def main():
       achievement = filtered_df.iloc[[34, 27, 28, 29, 30, 31, 32, 33]]
 
 
-      # df.style.applymap(draw_color_cell,color='#ff9090',subset=pd.IndexSlice[0,[clicked_sggnm]])
+      # df.style.applymap(draw_color_cell,color='#ff9090',subset=pd.IndexSlice[0,clicked_sggnm])
       
       # print(filtered_df)
     
