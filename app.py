@@ -178,7 +178,7 @@ def main():
       filtered_df_title_artsindex = filtered_df.iloc[35:]
       # print(filtered_df)
 
-      creation = df.reindex(index=[4,0,1,2,3])
+      creation.reindex(index=[4,0,1,2,3])
       st.sidebar.table(creation)
 
       # write sub-indices
