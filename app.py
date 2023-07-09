@@ -16,18 +16,18 @@ set_page_config()
 # loads arts_vib_index data & geodata
 # df_test = pd.read_csv('data/arts_index.csv')
 
-busan_df = pd.read_csv('data/Busan_arts_index_indetail_last.csv')
-seoul_df = pd.read_csv('data/Seoul_arts_index_indetail_last.csv')
+busan_df = pd.read_csv('data/Busan_arts_index_indetail.csv')
+seoul_df = pd.read_csv('data/Seoul_arts_index_indetail.csv')
 filename_geodata = 'hangjeongdong_merge_last.geojson'
 admin_gdf = gpd.read_file(filename_geodata)
 
 merged_seoul_df = pd.merge(seoul_df, admin_gdf, left_on='구', right_on='sggnm', how='inner')
 merged_busan_df = pd.merge(busan_df, admin_gdf, left_on='구', right_on='sggnm', how='inner')
 
-# merged_df = pd.concat([merged_seoul_df, merged_busan_df])
-merged_df_all = pd.merge(merged_busan_df, merged_seoul_df, how='outer')
-merged_df_all = merged_df_all.drop_duplicates(subset=['sidonm', 'sggnm'])
-merged_gdf = gpd.GeoDataFrame(merged_df_all, geometry="geometry")
+merged_df = pd.concat([merged_seoul_df, merged_busan_df])
+# merged_df_all = pd.merge(merged_busan_df, merged_seoul_df, how='outer')
+merged_df = merged_df.drop_duplicates(subset=['sidonm', 'sggnm'])
+merged_gdf = gpd.GeoDataFrame(merged_df, geometry="geometry")
 
 # global variables
 center = [37.541, 126.986]
@@ -165,27 +165,24 @@ def main():
       condition = (merged_gdf['sggnm'] == clicked_sggnm) & (merged_gdf['sidonm'] == clicked_sidonm) 
       filtered_df = merged_gdf[condition].iloc[:, 0:70].transpose()
       filtered_df.rename(columns=filtered_df.iloc[0],inplace=True)
-      '''
       filtered_df = filtered_df.drop(filtered_df.index[0])
       creation = filtered_df.iloc[[4, 0, 1, 2, 3]]
       finance = filtered_df.iloc[[11, 5, 6, 7, 8, 9, 10]]
       facilities = filtered_df.iloc[[17, 12, 13, 14, 15, 16]]
       enjoyment = filtered_df.iloc[[26, 18, 19, 20, 21, 22, 23, 24, 25]]
       achievement = filtered_df.iloc[[34, 27, 28, 29, 30, 31, 32, 33]]
-      '''
       # print(filtered_df)
     
       st.sidebar.table(filtered_df)
     
       # write sub-indices
       st.sidebar.write(f"**{clicked_sidonm}**  **{clicked_sggnm}**")
-      '''
+      
       st.sidebar.table(creation)
       st.sidebar.table(finance)
       st.sidebar.table(facilities)
       st.sidebar.table(enjoyment)
       st.sidebar.table(achievement)
-      '''
 
       
 
