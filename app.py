@@ -27,7 +27,7 @@ merged_busan_df = pd.merge(busan_df, admin_gdf, left_on='구', right_on='sggnm',
 # merged_df = pd.concat([merged_seoul_df, merged_busan_df])
 merged_df_all = pd.merge(busan_df, seoul_df, on = '구', how='outer')
 # merged_df = merged_df.drop_duplicates(subset=['sidonm', 'sggnm'])
-merged_df_all = merged_df_all.drop_duplicates(subset=['sidonm', 'sggnm'])
+# merged_df_all = merged_df_all.drop_duplicates(subset=['sidonm', 'sggnm'])
 merged_gdf = gpd.GeoDataFrame(merged_df_all, geometry="geometry")
 
 st.write(merged_df_all)
