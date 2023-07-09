@@ -177,7 +177,7 @@ def main():
       achievement = filtered_df.iloc[[34, 27, 28, 29, 30, 31, 32, 33]]
 
 
-      styled_creation = creation.style.applymap(draw_color_cell, subset=pd.IndexSlice[0, 0])
+      # styled_creation = creation.style.applymap(draw_color_cell, subset=pd.IndexSlice[0, 0])
 
       # print(filtered_df)
     
