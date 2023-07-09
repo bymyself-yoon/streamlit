@@ -21,11 +21,11 @@ seoul_df = pd.read_csv('data/Seoul_arts_index_indetail_last.csv')
 filename_geodata = 'hangjeongdong_merge_last.geojson'
 admin_gdf = gpd.read_file(filename_geodata)
 
-merged_seoul_df = pd.merge(seoul_df, admin_gdf, left_on='구', right_on='sggnm', how='inner')
-merged_busan_df = pd.merge(busan_df, admin_gdf, left_on='구', right_on='sggnm', how='inner')
+merged_df = pd.merge(seoul_df, admin_gdf, left_on='구', right_on='sggnm', how='inner')
+merged_df = pd.merge(busan_df, admin_gdf, left_on='구', right_on='sggnm', how='inner')
 
-# merged_df = pd.concat([merged_seoul_df, merged_busan_df])
-# merged_df = merged_df.drop_duplicates(subset=['sidonm', 'sggnm'])
+merged_df = pd.concat([merged_seoul_df, merged_busan_df])
+merged_df = merged_df.drop_duplicates(subset=['sidonm', 'sggnm'])
 merged_gdf = gpd.GeoDataFrame(merged_df, geometry="geometry")
 
 # global variables
@@ -165,7 +165,6 @@ def main():
       # print(st_data['last_active_drawing']['properties']['sggnm'])
 
       # extract sub-dataframe
-      if clicked_sggnm == "서울특별시":
           condition = (merged_gdf['sggnm'] == clicked_sggnm) & (merged_gdf['sidonm'] == clicked_sidonm )
           filtered_df = merged_gdf[condition].iloc[:, 0:37].transpose()
           filtered_df.rename(columns=filtered_df.iloc[0],inplace=True)
@@ -175,16 +174,6 @@ def main():
           facilities = filtered_df.iloc[[17, 12, 13, 14, 15, 16]]
           enjoyment = filtered_df.iloc[[26, 18, 19, 20, 21, 22, 23, 24, 25]]
           achievement = filtered_df.iloc[[34, 27, 28, 29, 30, 31, 32, 33]]
-      elif clicked_sggnm == "부산광역시":
-          condition = (merged_busan_gdf['sggnm'] == clicked_sggnm) & (merged_busan_gdf['sidonm'] == clicked_sidonm )
-          filtered_df = merged_busan_gdf[condition].iloc[:, 0:38].transpose()
-          filtered_df.rename(columns=filtered_df.iloc[0],inplace=True)
-          filtered_df = filtered_df.drop(filtered_df.index[0])
-          creation = filtered_df.iloc[[4, 0, 1, 2, 3]]
-          finance = filtered_df.iloc[[11, 5, 6, 7, 8, 9, 10]]
-          facilities = filtered_df.iloc[[18, 12, 13, 14, 15, 16, 17]] # 부산 인덱스 하나 더 추가
-          enjoyment = filtered_df.iloc[[27, 19, 20, 21, 22, 23, 24, 25, 26]]
-          achievement = filtered_df.iloc[[35, 28, 29, 30, 31, 32, 33, 34]]
       # print(filtered_df)
     
       # st.sidebar.table(filtered_df)
