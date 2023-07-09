@@ -170,26 +170,25 @@ def main():
       filtered_df.rename(columns=filtered_df.iloc[0],inplace=True)
       filtered_df = filtered_df.drop(filtered_df.index[0])
       creation = filtered_df.iloc[[4, 0, 1, 2, 3]]
-      # finance = filtered_df.iloc[5:11]
-      # facilities = filtered_df.iloc[12:18]
-      # enjoyment = filtered_df.iloc[19:27]
-      # achivement = filtered_df.iloc[28:35]
+      finance = filtered_df.iloc[[11, 5, 6, 7, 8, 9, 10]]
+      facilities = filtered_df.iloc[[18, 12, 13, 14, 15, 16, 17]]
+      enjoyment = filtered_df.iloc[[27, 19, 20, 21, 22, 23, 24, 25, 26]]
+      achivement = filtered_df.iloc[[35, 28, 29, 30, 31, 32, 33, 34]]
       
       # print(filtered_df)
     
-      st.sidebar.table(filtered_df)
-        
-      
+      # st.sidebar.table(filtered_df)
+    
       # write sub-indices
       st.sidebar.write(f"**{clicked_sidonm}**  **{clicked_sggnm}**")
 
       st.sidebar.table(filtered_df)
 
-      # st.sidebar.table(creation)
-      # st.sidebar.table(finance)
-      # st.sidebar.table(facilities)
-      # st.sidebar.table(enjoyment)
-      # st.sidebar.table(archivement)
+      st.sidebar.table(creation)
+      st.sidebar.table(finance)
+      st.sidebar.table(facilities)
+      st.sidebar.table(enjoyment)
+      st.sidebar.table(archivement)
       
 
       
