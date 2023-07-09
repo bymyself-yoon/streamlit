@@ -176,7 +176,6 @@ def main():
           facilities = filtered_df.iloc[[17, 12, 13, 14, 15, 16]] # 부산 하나더 추가
           enjoyment = filtered_df.iloc[[26, 18, 19, 20, 21, 22, 23, 24, 25]]
           achievement = filtered_df.iloc[[34, 27, 28, 29, 30, 31, 32, 33]]
-          arts = filtered_df.iloc[[35:]]
       elif clicked_sggnm == "부산광역시":
           condition = (merged_busan_gdf['sggnm'] == clicked_sggnm) & (merged_busan_gdf['sidonm'] == clicked_sidonm )
           filtered_df = merged_busan_gdf[condition].iloc[:, 0:38].transpose()
@@ -187,7 +186,6 @@ def main():
           facilities = filtered_df.iloc[[18, 12, 13, 14, 15, 16, 17]] # 부산 하나더 추가
           enjoyment = filtered_df.iloc[[27, 19, 20, 21, 22, 23, 24, 25, 26]]
           achievement = filtered_df.iloc[[35, 28, 29, 30, 31, 32, 33, 34]]
-          arts = filtered_df.iloc[[36:]]
       
       # styled_creation = creation.style.applymap(draw_color_cell, subset=pd.IndexSlice[0, 0])
 
