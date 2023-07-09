@@ -174,6 +174,8 @@ def main():
       facilities = filtered_df.iloc[[17, 12, 13, 14, 15, 16]]
       enjoyment = filtered_df.iloc[[26, 18, 19, 20, 21, 22, 23, 24, 25]]
       achievement = filtered_df.iloc[[34, 27, 28, 29, 30, 31, 32, 33]]
+
+      creation.style.applymap(draw_color_cell,color='#ff9090',subset=pd.IndexSlice[0,[filtered_df.iloc[0]]])
       
       # print(filtered_df)
     
