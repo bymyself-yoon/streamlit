@@ -34,7 +34,7 @@ def get_top_communities(n):
     예술활력지수가 높은 N개의 커뮤니티를 반환
     @n : TOP-N
   '''
-  top_communities_df = merged_gdf.nlargest(n, '예술지수')
+  top_communities_df = merged_gdf.nlargest(n, '예술활력지수')
   return top_communities_df
   # print(top_communities_df)
 
