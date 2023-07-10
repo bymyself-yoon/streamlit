@@ -142,7 +142,6 @@ def main():
       st.sidebar.table(achievement)
 
       
-
 if __name__ == '__main__':
     main()
     
