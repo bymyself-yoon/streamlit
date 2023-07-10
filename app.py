@@ -34,7 +34,7 @@ def get_top_communities(n):
     예술활력지수가 높은 N개의 커뮤니티를 반환
     @n : TOP-N
   '''
-  top_communities_df = merged_gdf.nlargest(n, '예술활력지수')
+  top_communities_df = merged_gdf.nlargest(n, '예술지수')
   return top_communities_df
   # print(top_communities_df)
 
@@ -52,7 +52,7 @@ def add_circle_area(n):
 
   for index, row in top_communities_df.iterrows():
     centroid = [ row['geometry'].centroid.y, row['geometry'].centroid.x ]
-    messages = f" {row['구']} + 예술활력지수: {int(row['예술활력지수']) }"
+    messages = f" {row['구']} + 예술지수: {int(row['예술지수']) }"
     popup = folium.Popup(messages, max_width=300)
 
     folium.Circle(
@@ -92,7 +92,7 @@ def main():
   folium.Choropleth(
       geo_data = filename_geodata,
       data = merged_gdf,
-      columns = ('sggnm', '예술활력지수'),
+      columns = ('sggnm', '예술지수'),
       key_on = 'feature.properties.sggnm',
       fill_color = 'BuPu',
       legend_name = 'Arts Vibrancy Index',
