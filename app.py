@@ -130,7 +130,7 @@ def main():
       facilities = filtered_df.iloc[[17, 12, 13, 14, 15, 16]]
       enjoyment = filtered_df.iloc[[26, 18, 19, 20, 21, 22, 23, 24, 25]]
       achievement = filtered_df.iloc[[34, 27, 28, 29, 30, 31, 32, 33]]
-      artsindex = filtered_df.iloc[[35]]
+      artsindex = filtered_df.iloc[35]
       # print(filtered_df)
     
       # write sub-indices
