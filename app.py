@@ -134,11 +134,9 @@ def main():
       # print(filtered_df)
     
       # write sub-indices
-      with st.sidebar:
-          styles={
-           "nav-link-selected": {"background-color": "#08c7b4"},
-    }
       st.sidebar.write(f"**{clicked_sidonm}**  **{clicked_sggnm}**")
+
+      st.sidebar.write(artsindex)
 
       st.sidebar
       st.sidebar.table(creation)
