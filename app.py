@@ -13,8 +13,8 @@ def set_page_config():
     )
 set_page_config()
 
-busan_df = pd.read_csv('data/Busan_arts_index_reallast.csv')
-seoul_df = pd.read_csv('data/Seoul_arts_index_reallast.csv')
+busan_df = pd.read_csv('data/Busan_arts_index.csv')
+seoul_df = pd.read_csv('data/Seoul_arts_index.csv')
 filename_geodata = 'hangjeongdong_merge_last.geojson'
 admin_gdf = gpd.read_file(filename_geodata)
 
@@ -130,7 +130,6 @@ def main():
       facilities = filtered_df.iloc[[17, 12, 13, 14, 15, 16]]
       enjoyment = filtered_df.iloc[[26, 18, 19, 20, 21, 22, 23, 24, 25]]
       achievement = filtered_df.iloc[[34, 27, 28, 29, 30, 31, 32, 33]]
-      artsindex = filtered_df.iloc[[35]]
       # print(filtered_df)
     
       # write sub-indices
