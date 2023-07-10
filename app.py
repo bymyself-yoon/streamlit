@@ -138,7 +138,6 @@ def main():
 
       st.sidebar.write(artsindex)
 
-      st.sidebar
       st.sidebar.table(creation)
       st.sidebar.table(finance)
       st.sidebar.table(facilities)
